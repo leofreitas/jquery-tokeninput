@@ -37,6 +37,8 @@
 
     enableHTML: false,
 
+    arialabel: null,
+
     resultsFormatter: function(item) {
       var string = item[this.propertyToSearch];
       return "<li>" + (this.enableHTML ? string : _escapeHTML(string)) + "</li>";
@@ -384,6 +386,11 @@
       // Keep reference for placeholder
       if (settings.placeholder) {
         input_box.attr("placeholder", settings.placeholder);
+      }
+
+      // Add attribute aria-label - accessibility
+      if (settings.arialabel) {
+        input_box.attr("aria-label", settings.arialabel);
       }
 
       // Keep a reference to the original input box
